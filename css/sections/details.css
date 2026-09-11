@@ -1,0 +1,291 @@
+/* =========================================================
+   DETAILS: "All The Details" (WHAT / WHEN / WHERE)
+   Isti raspored koristi i sekcija "Quick Recap"
+   Vrednosti izmerene na originalu na 1920, 1366, 1000 i 375px
+   ========================================================= */
+.details {
+  padding: 80px 40px;
+}
+
+/* Prazan razmak od 1px koji original ima ispred "Quick Recap" sekcije */
+.spacer-1px {
+  height: 1px;
+}
+
+/* Veliki okvir sa blagim zelenim gradijentom */
+.details__card {
+  position: relative;
+  overflow: hidden;        /* ukrasi na vrhu su širi od okvira na mobilnom */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+  border-radius: 40px;
+  background: linear-gradient(146deg, rgba(0, 168, 86, 0.1) 0%, rgba(0, 38, 20, 0.25) 100%);
+}
+
+/* Ivica od 1px samo na dnu okvira */
+.details__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid var(--green-dark);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+
+/* ---------- Ukrasi na vrhu okvira ---------- */
+/* Tanka zelena linija na gornjoj ivici */
+.details__line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--green);
+}
+
+/* Uzorak tačkica i zraci svetla, oba sa toplim sepija tonom */
+.details__dots,
+.details__rays {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  max-width: none;
+  filter: sepia(1);
+  pointer-events: none;
+}
+
+.details__dots {
+  top: 5px;
+  height: 112px;
+}
+
+.details__rays {
+  top: 0;
+  height: 345px;
+}
+
+
+/* ---------- Naslov ---------- */
+.details__title {
+  position: relative;      /* iznad ukrasa */
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  font-size: 38px;
+  line-height: 45.6px;
+  font-weight: 500;
+  letter-spacing: -1.22px;
+  text-wrap: balance;
+}
+
+
+/* ---------- Kartice + dugme ---------- */
+.details__content {
+  position: relative;      /* iznad ukrasa */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Tri kartice u redu, vertikalno centrirane */
+.details__row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.info-card {
+  position: relative;
+  flex: 1 1 0;             /* tri jednake kolone */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 20px;
+}
+
+/* Ivica od 1px samo na vrhu kartice */
+.info-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgb(28, 30, 32);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Svaka kartica ima gradijent pod drugim uglom */
+.info-card--what {
+  background: linear-gradient(45deg, var(--green-dark) 0%, #00522c 100%);
+}
+
+.info-card--when {
+  align-self: stretch;     /* na originalu je iste visine kao najviša kartica */
+  background: linear-gradient(128deg, var(--green-line) 0%, var(--green-dark) 100%);
+}
+
+.info-card--where {
+  background: linear-gradient(315deg, var(--green-dark) 0%, #00522c 100%);
+}
+
+/* Okrugla podloga za ikonicu */
+.info-card__icon {
+  display: flex;
+  width: 88px;
+  height: 88px;
+  padding: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.info-card--what .info-card__icon {
+  background: linear-gradient(45deg, var(--green-dark) 0%, var(--green-line) 100%);
+}
+
+.info-card--when .info-card__icon {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.info-card--where .info-card__icon {
+  background: linear-gradient(315deg, var(--green-dark) 0%, var(--green-line) 100%);
+}
+
+.info-card__icon svg {
+  width: 48px;
+  height: 48px;
+  color: #fff;
+}
+
+.info-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.info-card__label {
+  font-size: 38px;
+  line-height: 45.6px;
+  font-weight: 500;
+  letter-spacing: -1.22px;
+}
+
+.info-card__text p {
+  font-size: 16px;
+  line-height: 23.2px;
+  letter-spacing: -0.01em;
+}
+
+/* Dugme ispod kartica (izgled dugmeta je u base.css) */
+.details__cta {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 22px;
+}
+
+.details .btn-cta {
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   ŠIROKI EKRANI (od 1440px): sve tri kartice iste visine
+   ========================================================= */
+@media (min-width: 1440px) {
+  .details__title,
+  .info-card__label {
+    font-size: 48px;
+    line-height: 57.6px;
+  }
+
+  .details__row {
+    align-items: stretch;
+  }
+}
+
+
+/* =========================================================
+   TABLET (810px – 1199px): kartice jedna ispod druge
+   ========================================================= */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .details__title,
+  .info-card__label {
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+
+  .details__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .info-card {
+    flex: none;
+  }
+
+  .info-card__text p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+
+/* =========================================================
+   MOBILNI (do 809px)
+   ========================================================= */
+@media (max-width: 809px) {
+  .details {
+    padding: 40px 20px;
+  }
+
+  .details__card {
+    padding: 40px 0 20px;
+    border-radius: 24px;
+  }
+
+  .details__line {
+    width: 195px;
+  }
+
+  .details__title,
+  .info-card__label {
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+
+  .details__content {
+    width: calc(100% - 30px); /* kartice su uvučene 15px sa strane */
+    gap: 29px;
+  }
+
+  .details__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .info-card {
+    flex: none;
+    padding: 20px;
+  }
+
+  .info-card__text p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .details .btn-cta {
+    width: 100%;
+    font-size: 18px;
+  }
+}

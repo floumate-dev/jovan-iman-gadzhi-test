@@ -1,0 +1,369 @@
+/* =========================================================
+   BLUEPRINT: "Your 5-Day Side Hustle Blueprint" (5 kartica epizoda)
+   Vrednosti izmerene na originalu na 1920, 1366, 1000 i 375px
+   ========================================================= */
+.blueprint {
+  position: relative;
+  overflow-x: clip;        /* zamagljeni "oblaci" ne smeju da naprave horizontalni skrol */
+  padding: 80px 40px;
+}
+
+/* Dva zamagljena tamnozelena "oblaka" u pozadini sekcije */
+.blueprint__glow {
+  position: absolute;
+  z-index: 0;
+  width: 698px;
+  height: 454px;
+  background: var(--green-dark);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.blueprint__glow--top {
+  top: 80px;
+  left: -139px;
+  filter: blur(107px);
+}
+
+.blueprint__glow--bottom {
+  right: -212px;
+  bottom: -50px;
+  filter: blur(144px);
+}
+
+
+/* ---------- Naslov sekcije ---------- */
+.blueprint__title {
+  position: relative;      /* iznad "oblaka" */
+  z-index: 1;
+  text-align: center;
+  font-size: 38px;
+  line-height: 45.6px;
+  font-weight: 500;
+  letter-spacing: -1.22px;
+  white-space: nowrap;
+  width: fit-content;      /* okvir naslova je širok koliko i tekst (kao u originalu) */
+  margin-inline: auto;
+}
+
+.blueprint__title em {
+  font-style: italic;
+  font-weight: 700;
+}
+
+
+/* ---------- Raspored kartica: redovi po dve, poslednja sama ---------- */
+.blueprint__rows {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+.blueprint__row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* kartice u redu nisu iste visine (kao u originalu) */
+  gap: 20px;
+}
+
+.blueprint__row > .ep-card {
+  flex: 1 1 0;             /* dve jednake kolone */
+}
+
+.blueprint__row--single > .ep-card {
+  flex: 0 0 50%;           /* peta kartica je uvek pola širine */
+}
+
+/* U drugom redu original na desktopu izjednačava visine kartica (na tabletu ne) */
+.blueprint__row--stretch {
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   KARTICA EPIZODE
+   Boje teme su u promenljivama, pa crvena kartica (epizoda 05)
+   menja samo promenljive (vidi .ep-card--live)
+   ========================================================= */
+.ep-card {
+  --theme-rgb: 0, 38, 20;                  /* tamna boja teme: dno kartice i ivice */
+  --item-bg: rgba(0, 213, 90, 0.1);
+  --line: var(--green-line);
+  --icon: var(--yellow);                   /* ikonica u zaglavlju */
+  --icon-list: var(--green-line);          /* ikonice u stavkama */
+
+  position: relative;
+  overflow: hidden;        /* ukrasi (krug, zraci) su delimično van kartice */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 12px 20px;
+  border-radius: 16px 16px 24px 24px;
+  background: linear-gradient(180deg, #000 0%, rgb(var(--theme-rgb)) 100%);
+}
+
+/* Ivica od 1px preko cele kartice (kao u Framer-u, kroz ::after) */
+.ep-card::after,
+.ep-card__head::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(var(--theme-rgb));
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Crvena tema za epizodu 05 (LIVE) */
+.ep-card--live {
+  --theme-rgb: 38, 0, 0;
+  --item-bg: rgba(214, 0, 0, 0.1);
+  --line: rgb(168, 0, 0);
+  --icon: rgb(240, 68, 54);
+  --icon-list: rgb(240, 68, 54);
+  height: 424px;           /* u originalu ima fiksnu visinu; višak sadržaja odseče overflow: hidden */
+}
+
+
+/* ---------- Zaglavlje: ikonica + "Episode 01" ---------- */
+.ep-card__head {
+  position: relative;      /* referentna tačka za ::after ivicu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-radius: 8px;
+  background: rgba(var(--theme-rgb), 0.15);
+}
+
+.ep-card__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--icon);
+  /* maska: gore potpuno vidljiva, ka dnu bledi na 10%, pa ikonica deluje tamnija */
+  -webkit-mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, #000 100%);
+          mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, #000 100%);
+}
+
+.ep-card__num {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  line-height: 45px;
+  font-weight: 400;
+  color: #f5f5f5;
+  white-space: nowrap;
+}
+
+
+/* ---------- Datum, naslov, svetleće linije ---------- */
+.ep-card__date {
+  text-align: center;
+  font-size: 14px;
+  line-height: 19.6px;
+  font-weight: 500;
+}
+
+.ep-card__line {
+  flex-shrink: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(271deg, transparent 0%, var(--line) 50.45%, transparent 100%);
+}
+
+.ep-card__title {
+  text-align: center;
+  font-size: 26px;
+  line-height: 31.2px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Zlatni tekst (epizoda 03): gradijent "isečen" po obliku slova */
+.text-gold {
+  background: linear-gradient(90deg, rgb(255, 194, 26) 0%, rgb(255, 222, 115) 25.12%, rgb(255, 194, 26) 75.37%, rgb(255, 222, 115) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+/* Crvena reč "LIVE!" (epizoda 05) */
+.text-live {
+  color: var(--icon);
+  font-weight: 700;
+}
+
+
+/* ---------- Tri stavke sa ikonicama ---------- */
+.ep-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.ep-card__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: var(--item-bg);
+  font-size: 16px;
+  line-height: 23.2px;
+  letter-spacing: -0.01em;
+}
+
+.ep-card__item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--icon-list);
+}
+
+
+/* ---------- Ukrasi (SVG slike) ---------- */
+.ep-card__decor {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+
+/* zraci svetla u gornjem desnom uglu */
+.ep-card__decor--rays {
+  top: 0;
+  right: 0;
+  width: 139px;
+  height: 142px;
+}
+
+/* krug: počinje 140px od desne ivice, pola je iznad kartice (odseče ga overflow) */
+.ep-card__decor--circle {
+  top: -156px;
+  left: calc(100% - 140px);
+  width: 300px;
+  height: 300px;
+}
+
+/* akcent zraka levo gore (uvek vidljiv) */
+.ep-card__decor--accent {
+  top: 0;
+  left: -58px;
+  z-index: 1;
+  width: 227px;
+  height: 197px;
+  filter: sepia(1);        /* sivi SVG dobija topli žućkasti ton, kao u originalu */
+}
+
+
+/* =========================================================
+   ŠIROKI EKRANI (od 1440px)
+   ========================================================= */
+@media (min-width: 1440px) {
+  .blueprint__title {
+    font-size: 48px;
+    line-height: 57.6px;
+  }
+
+  .ep-card__title {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+}
+
+
+/* =========================================================
+   TABLET (810px – 1199px)
+   ========================================================= */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .blueprint {
+    padding: 80px 24px 120px;
+  }
+
+  .blueprint__title {
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+
+  .blueprint__row {
+    gap: 30px;
+  }
+
+  .blueprint__row--stretch {
+    align-items: flex-start;
+  }
+
+  .ep-card__date {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  .ep-card__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .ep-card__item {
+    line-height: 19.2px;
+    letter-spacing: normal;
+  }
+}
+
+
+/* =========================================================
+   MOBILNI (do 809px)
+   ========================================================= */
+@media (max-width: 809px) {
+  .blueprint {
+    padding: 40px 20px;
+  }
+
+  .blueprint__title {
+    font-size: 28px;
+    line-height: 33.6px;
+    white-space: normal;
+  }
+
+  .blueprint__rows {
+    gap: 20px;               /* razmak između "redova" */
+  }
+
+  .blueprint__row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;               /* razmak između dve kartice istog reda */
+  }
+
+  .blueprint__row > .ep-card,
+  .blueprint__row--single > .ep-card {
+    flex: none;
+  }
+
+  .ep-card {
+    padding: 22px 12px 12px;
+  }
+
+  .ep-card--live {
+    height: auto;          /* na mobilnom je visina automatska */
+  }
+
+  .ep-card__date {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+
+  .ep-card__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .ep-card__item {
+    line-height: 19.2px;
+    letter-spacing: normal;
+  }
+}

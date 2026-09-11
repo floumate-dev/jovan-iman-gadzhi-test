@@ -1,0 +1,325 @@
+/* =========================================================
+   STORIES: "Why Should You Listen To Us?" (vremenska linija sa 6 priča)
+   Vrednosti izmerene na originalu na 1920, 1366, 1000 i 375px
+   ========================================================= */
+.stories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 96px 20px;
+}
+
+.stories__title {
+  width: 100%;
+  text-align: center;
+  font-size: 38px;
+  line-height: 45.6px;
+  font-weight: 500;
+  letter-spacing: -1.22px;
+  text-wrap: balance;
+}
+
+
+/* =========================================================
+   JEDNA PRIČA: grid sa imenovanim oblastima
+   Isti HTML, a CSS menja raspored: na desktopu tri kolone,
+   na mobilnom marker levo + naslov, slika i tekst jedno ispod drugog
+   ========================================================= */
+.story {
+  display: grid;
+  grid-template-columns: 506px 52px 506px;
+  grid-template-rows: auto 1fr;
+  column-gap: 48px;
+  row-gap: 20px;              /* razmak između naslova i teksta */
+  justify-content: center;
+  width: 100%;
+}
+
+/* slika levo, tekst desno */
+.story--media-left {
+  grid-template-areas:
+    "media  marker title"
+    "media  marker text";
+}
+
+/* tekst levo, slika desno */
+.story--media-right {
+  grid-template-areas:
+    "title  marker media"
+    "text   marker media";
+}
+
+
+/* ---------- Marker: zvezdica + zelena linija ---------- */
+.story__marker {
+  grid-area: marker;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Zvezdica sa gradijentom od zelene (dole) ka beloj (gore) */
+.story__star {
+  font-family: "Inter", var(--font-main);
+  font-size: 64px;
+  line-height: 70.4px;
+  font-weight: 600;
+  background: linear-gradient(0deg, var(--green) 0%, #fff 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+/* Linija ide od zvezdice do dna priče (flex: 1 = zauzmi ostatak visine) */
+.story__line {
+  flex: 1;
+  width: 3px;
+  background: var(--green);
+}
+
+
+/* ---------- Naslov priče ---------- */
+.story__title {
+  grid-area: title;
+  font-size: 26px;
+  line-height: 31.2px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.story__title--balance {
+  text-wrap: balance;
+}
+
+/* Jedan gradijent (zelena -> bela) preko celog naslova, kao u originalu.
+   Podebljani deo je unutar istog spana, pa nema svoj gradijent,
+   nego se boja nastavlja kroz njega. */
+.story__title > span {
+  /* inline-block = span je "kutija" široka kao naslov, pa gradijent ide
+     s leva na desno preko te širine i svaki red kreće od zelene */
+  display: inline-block;
+  background: linear-gradient(90deg, var(--green) 0%, #fff 88%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.story__title strong {
+  font-weight: 900;
+}
+
+
+/* ---------- Slika ---------- */
+.story__media {
+  grid-area: media;
+  position: relative;         /* referentna tačka za logo u drugoj priči */
+  align-self: start;
+}
+
+.story__media > img {
+  width: 100%;
+  height: auto;               /* slika zadržava svoje proporcije */
+  border-radius: 12px;
+}
+
+/* Druga priča: slika sa fiksnom visinom (isečena) + logo preko donjeg levog ugla */
+.story__media--cover > img {
+  height: 229px;
+  object-fit: cover;
+}
+
+.story__media > .story__logo {
+  position: absolute;
+  left: -48px;
+  bottom: -21px;
+  width: 204px;
+  max-width: none;
+  height: 57px;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+/* Četvrta priča: tri slike, dve u redu i treća centrirana ispod */
+.story__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.story__gallery img {
+  width: calc(50% - 5px);
+  height: auto;
+  border-radius: 12px;
+}
+
+.story__gallery img:last-child {
+  width: 50%;
+}
+
+
+/* ---------- Tekst priče ---------- */
+.story__text {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;                  /* razmak između pasusa */
+  padding-bottom: 128px;
+}
+
+.story__text p {
+  font-size: 16px;
+  line-height: 23.2px;
+  letter-spacing: -0.01em;
+}
+
+.story__text strong {
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   ŠIROKI EKRANI (od 1440px)
+   ========================================================= */
+@media (min-width: 1440px) {
+  .stories__title {
+    font-size: 48px;
+    line-height: 57.6px;
+  }
+
+  .story__title {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+
+  .story__media--cover > img {
+    height: 380px;
+  }
+}
+
+
+/* =========================================================
+   FINO PODEŠAVANJE PRELOMA NASLOVA
+   Naš font je za nijansu širi od originalnog, pa pojedini naslovi dobijaju
+   malo gušća slova samo na širinama gde bi se inače prelomili drugačije.
+   --fit-lg = 1200–1439px, --fit-md = tablet, --fit-sm = mobilni
+   ========================================================= */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .story__title--fit-lg {
+    letter-spacing: -0.025em;
+  }
+}
+
+
+/* =========================================================
+   TABLET (810px – 1199px): kolone od 375px razmaknute do ivica
+   ========================================================= */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .stories__title {
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+
+  .story {
+    grid-template-columns: 375px 52px 375px;
+    column-gap: 0;
+    justify-content: space-between;
+  }
+
+  .story__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .story__text p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .story__media--cover > img {
+    height: 162px;
+  }
+
+  .story__title--fit-md {
+    letter-spacing: -0.015em;
+  }
+}
+
+
+/* =========================================================
+   MOBILNI (do 809px): marker levo, sve ostalo u jednoj koloni
+   ========================================================= */
+@media (max-width: 809px) {
+  .stories {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .stories__title {
+    padding: 8px 0;
+    font-size: 28px;
+    line-height: 33.6px;
+    letter-spacing: -1.5px;        /* da stane u jedan red kao u originalu (naš font je širi) */
+  }
+
+  .story__title--fit-sm {
+    letter-spacing: -0.015em;
+  }
+
+  .story,
+  .story--media-left,
+  .story--media-right {
+    grid-template-columns: 76px 1fr;
+    grid-template-rows: auto auto 1fr;
+    column-gap: 16px;
+    justify-content: stretch;
+    grid-template-areas:
+      "marker title"
+      "marker media"
+      "marker text";
+  }
+
+  .story__star {
+    font-size: 48px;
+    line-height: 57.6px;
+  }
+
+  .story__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .story__text {
+    padding-bottom: 24px;
+  }
+
+  .story:last-child .story__text {
+    padding-bottom: 0;
+  }
+
+  .story__text p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .story__media--cover > img {
+    height: auto;
+  }
+
+  .story__media > .story__logo {
+    left: -17px;
+    bottom: -8px;
+    width: 100px;
+    height: 28px;
+  }
+
+  .story__gallery img,
+  .story__gallery img:last-child {
+    width: 100%;
+  }
+}

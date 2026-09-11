@@ -1,0 +1,339 @@
+/* =========================================================
+   LEARN: "What You'll Learn For FREE in 5 Days" (8 kartica)
+   Desktop: mreža 4×2 | tablet i mobilni: slajder (vodoravni skrol)
+   Vrednosti izmerene na originalu na 1920, 1366, 1000 i 375px
+   ========================================================= */
+.learn {
+  position: relative;
+  overflow: clip;          /* pozadinski uzorak počinje iznad sekcije, ovde se odseče */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 80px 72px;
+}
+
+/* Veliki uzorak tačkica: vidi se samo njegov donji deo na vrhu sekcije */
+.learn__pattern {
+  position: absolute;
+  z-index: 1;
+  top: -850px;
+  left: -101px;
+  width: calc(100% + 202px);
+  max-width: none;
+  height: 1203px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.learn__content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+/* ---------- Naslov i podnaslov ---------- */
+.learn__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.learn__title {
+  width: 100%;
+  max-width: 800px;
+  font-size: 38px;
+  line-height: 45.6px;
+  font-weight: 500;
+  letter-spacing: -1.22px;
+  text-wrap: balance;
+}
+
+.learn__sub {
+  width: 100%;
+  max-width: 800px;
+  font-size: 16px;
+  line-height: 23.2px;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+
+/* ---------- Kartice: na desktopu mreža 4 × 285px ---------- */
+.learn__slider {
+  position: relative;      /* referentna tačka za dugmad levo/desno */
+}
+
+.learn__track {
+  display: grid;
+  grid-template-columns: repeat(4, 285px);
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.learn-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #00140b 0%, #000 100%);
+}
+
+/* Ivica od 1px oko cele kartice */
+.learn-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(34, 34, 34);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Slika bledi ka dnu (maska), pa se stapa sa pozadinom kartice */
+.learn-card__img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 56.49%);
+          mask-image: linear-gradient(0deg, transparent 0%, #000 56.49%);
+}
+
+/* Druga kartica u originalu ima kraće bleđenje */
+.learn-card__img--short {
+  -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 40.89%);
+          mask-image: linear-gradient(0deg, transparent 0%, #000 40.89%);
+}
+
+.learn-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 16px 16px;
+}
+
+.learn-card__title {
+  font-size: 16px;
+  line-height: 23.2px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Naslov prelazi iz zelene u belu (gradijent "isečen" po slovima) */
+.learn-card__title span {
+  background: linear-gradient(90deg, var(--green) 0%, #fff 88%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.learn-card__body {
+  font-size: 14px;
+  line-height: 19.6px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* ---------- Dugmad slajdera (vide se samo na tabletu i mobilnom) ---------- */
+.learn__nav {
+  display: none;
+}
+
+.learn__nav.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* ---------- Dugme ispod kartica ---------- */
+.learn__cta {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0 10px;
+}
+
+.learn .btn-cta {
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   ŠIROKI EKRANI (od 1440px)
+   ========================================================= */
+@media (min-width: 1440px) {
+  .learn__title {
+    font-size: 48px;
+    line-height: 57.6px;
+  }
+}
+
+
+/* =========================================================
+   TABLET I MOBILNI (do 1199px): kartice u slajderu
+   ========================================================= */
+@media (max-width: 1199px) {
+  /* Lista postaje vodoravni red koji se skroluje i "zakačinje" za karticu */
+  .learn__track {
+    display: flex;
+    justify-content: flex-start; /* na desktopu je "center"; u slajderu bi to sakrilo prve kartice levo */
+    align-items: center;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .learn-card {
+    flex: 0 0 285px;
+    scroll-snap-align: center;
+  }
+
+  /* Kartice 2, 6 i 8 u originalu imaju fiksnu visinu (347 i 348px) */
+  .learn-card--fixed {
+    height: 347px;
+  }
+
+  .learn-card--tall {
+    height: 348px;
+  }
+}
+
+/* Na uređajima sa mišem scrollbar slajdera se ne vidi (kao u originalu);
+   na telefonima ostaje providni sistemski scrollbar */
+@media (max-width: 1199px) and (pointer: fine) {
+  .learn__track {
+    scrollbar-width: none;
+  }
+
+  .learn__track::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Naslovi kartica i dugmad slajdera (tablet i mobilni) */
+@media (max-width: 1199px) {
+  .learn-card__title {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .learn__nav {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 168, 86, 0.5);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .learn__nav img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+/* =========================================================
+   TABLET (810px – 1199px)
+   ========================================================= */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .learn {
+    padding: 80px 24px;
+  }
+
+  .learn__content {
+    gap: 24px;
+  }
+
+  .learn__title {
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+
+  .learn__sub {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .learn__slider {
+    padding: 20px;
+  }
+
+  .learn__nav--prev {
+    left: 20px;
+  }
+
+  .learn__nav--next {
+    right: 20px;
+  }
+}
+
+
+/* =========================================================
+   MOBILNI (do 809px)
+   ========================================================= */
+@media (max-width: 809px) {
+  .learn {
+    padding: 40px 0;
+    gap: 12px;
+  }
+
+  .learn__content {
+    gap: 12px;
+  }
+
+  .learn__head {
+    padding: 0 20px;
+  }
+
+  .learn__title {
+    font-size: 28px;
+    line-height: 33.6px;
+  }
+
+  .learn__sub {
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  /* kartice kreću 20px od leve ivice, a desno izlaze van ekrana */
+  .learn__slider {
+    padding: 20px 0 20px 20px;
+  }
+
+  .learn__nav {
+    width: 32px;
+    height: 32px;
+  }
+
+  .learn__nav--prev {
+    left: 12px;
+  }
+
+  .learn__nav--next {
+    right: 12px;
+  }
+
+  .learn__cta {
+    padding: 0 20px 10px;
+  }
+
+  .learn .btn-cta {
+    width: 100%;
+    font-size: 18px;
+  }
+}

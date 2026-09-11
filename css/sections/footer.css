@@ -1,0 +1,96 @@
+/* =========================================================
+   FOOTER: logo, linkovi, napomena i autorska prava
+   Vrednosti izmerene na originalu na 1920, 1366, 1000 i 375px
+   ========================================================= */
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 40px 20px;
+}
+
+/* Tanka linija na vrhu footera (kroz ::after, pa ne menja visinu) */
+.footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgb(38, 34, 33);
+  pointer-events: none;
+}
+
+.footer__logo {
+  width: 120px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* Sve ispod loga je malo prigušeno (70% vidljivosti) */
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 960px;
+  opacity: 0.7;
+}
+
+
+/* ---------- Linkovi ---------- */
+.footer__links {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 0;
+}
+
+.footer__links a {
+  color: rgb(216, 222, 190);
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Uspravna crta između linkova */
+.footer__sep {
+  width: 11px;
+  text-align: center;
+  font-family: "Inter", var(--font-main);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 15.6px;
+  color: rgb(226, 226, 226);
+}
+
+
+/* ---------- Napomena i autorska prava ---------- */
+.footer__note {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  text-wrap: balance;
+}
+
+.footer__copy {
+  padding-top: 8px;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   MOBILNI (do 809px)
+   ========================================================= */
+@media (max-width: 809px) {
+  .footer {
+    padding: 32px 20px 20px;
+  }
+}

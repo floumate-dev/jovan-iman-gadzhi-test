@@ -1,0 +1,346 @@
+/* =========================================================
+   HERO: okvir
+   ========================================================= */
+.hero {
+  position: relative;      /* referentna tačka za apsolutne slojeve */
+  overflow: hidden;        /* ništa ne sme da izađe van i napravi horizontalni skrol */
+  padding-bottom: 40px;
+  container-type: inline-size;  /* omogućava cqw jedinice: 1cqw = 1% širine hero-a */
+}
+
+
+/* ---------- Pozadinski sloj ---------- */
+.hero__stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 690px;
+  z-index: 0;
+}
+
+/* Bina popunjava ceo sloj; "cover" seče višak sa strane */
+.hero__bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;           /* bina je 65% vidljiva preko crne pozadine, pa je tamnija */
+}
+
+/* Govornici su deo sadržaja: pozicionirani su u odnosu na .hero__content,
+   uvek 396px iznad logoa. z-index: -1 ih stavlja iza logoa i teksta.
+   mask-image postepeno "briše" donjih 20% slike da se stopi sa pozadinom. */
+.hero__speakers {
+  position: absolute;
+  z-index: -1;
+  top: 6px;
+  left: 50%;
+  /* -50% centrira sliku; -0.58cqw je pomeraj ulevo koji ima original
+     (u Framer-u je left 20.42%, right 21.58%, pa slika nije tačno u sredini) */
+  transform: translateX(calc(-50% - 0.58cqw));
+  width: 58cqw;            /* 58% širine hero-a, kao u originalu */
+  max-width: none;
+  height: 515px;
+  object-fit: contain;
+  -webkit-mask-image: linear-gradient(#000 80%, transparent 100%);
+          mask-image: linear-gradient(#000 80%, transparent 100%);
+}
+
+/* Dva gradijenta u jednom elementu:
+   1) dno se preliva u crno
+   2) leva i desna ivica blago potamne */
+.hero__fade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 47%, #000 90%),
+    linear-gradient(90deg, #000 0%, transparent 4%, transparent 96%, #000 100%);
+}
+
+
+/* ---------- Sadržaj ---------- */
+.hero__content {
+  position: relative;      /* mora biti "positioned" da bi z-index radio */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 402px;      /* logo počinje ispod glava govornika */
+}
+
+.hero__logo {
+  width: 160px;
+  height: 47px;
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+
+/* ---------- Bedž "LIVE VIRTUAL EVENT" ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 6px 15px;
+  border-radius: 24px;
+  box-shadow: inset 0 0 10px var(--green);   /* zeleni sjaj iznutra */
+}
+
+/* Crvena tačka + pulsirajući oreol (::before) */
+.badge__dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.badge__dot::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: #f97066;
+  animation: pulse 1.6s ease-out infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Tekst sa gradijentom: boja dolazi iz pozadine "isečene" po obliku slova */
+.badge__text {
+  font-family: var(--font-badge);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.2px;
+  white-space: nowrap;
+  background: linear-gradient(270deg, #fff 39%, var(--green) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.badge__text strong {
+  font-weight: 700;
+}
+
+
+/* ---------- Naslov ---------- */
+.hero__title {
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-wrap: balance;      /* browser ujednačava dužinu redova, kao u originalu */
+}
+
+.hero__title em {
+  font-style: italic;
+}
+
+.hero__title strong {
+  color: var(--yellow);
+  font-weight: 900;
+}
+
+
+/* ---------- Podnaslov ---------- */
+.hero__sub {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+
+/* ---------- CTA dugme ----------
+   Izgled dugmeta je u base.css (.btn-cta), ovde je samo razmak iznad njega */
+.hero .btn-cta {
+  margin-top: 20px;
+}
+
+
+/* ---------- Red sa ikonicama ispod dugmeta ---------- */
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;         /* na vrlo uskim ekranima (npr. 320px) stavke prelaze u novi red */
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  list-style: none;
+}
+
+.hero__trust li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;     /* tekst stavke ostaje u jednom redu */
+}
+
+.hero__trust svg {
+  width: 24px;
+  height: 24px;
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   ŠIROKI EKRANI (od 1440px), vrednosti izmerene na originalu na 1440, 1600 i 1920px
+   ========================================================= */
+@media (min-width: 1440px) {
+  .hero {
+    min-height: 100vh;             /* hero je visok koliko i ekran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;       /* sadržaj vertikalno centriran */
+    padding: 5px 0 0;
+  }
+
+  .hero__stage {
+    height: auto;
+    bottom: 4.1%;                  /* bina zauzima ~96% visine hero-a, pa se vidi ceo vrh */
+  }
+
+  .hero__content {
+    width: 100%;                   /* u flex koloni se element sa margin:auto inače ne rasteže */
+    max-width: 1000px;
+    padding-top: 396px;
+  }
+
+  .hero__speakers {
+    top: 0;
+  }
+
+  .hero__title {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+
+  .hero__sub {
+    max-width: 800px;
+  }
+}
+
+
+/* Mreža "poda" je sakrivena na većim ekranima */
+.hero__grid {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET (810px – 1199px), vrednosti izmerene na originalu na 1000px
+   ========================================================= */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .hero {
+    min-height: 800px;             /* na tabletu original ima hero od najmanje 800px */
+  }
+
+  .hero__stage {
+    height: 767px;
+  }
+
+  .hero__speakers {
+    top: 15px;
+    width: calc(100cqw - 40px);
+    transform: translateX(-50%);   /* na tabletu je original tačno centriran */
+  }
+
+  .hero__content {
+    padding-top: 411px;
+  }
+
+  .hero__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .hero__sub {
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+
+
+/* =========================================================
+   MOBILNI (do 809px), vrednosti izmerene na originalu na 375px
+   ========================================================= */
+@media (max-width: 809px) {
+  .hero {
+    padding-top: 40px;
+  }
+
+  .hero__stage {
+    height: 260px;
+  }
+
+  .hero__fade {
+    background:
+      linear-gradient(180deg, transparent 46%, #000 92%),
+      linear-gradient(90deg, #000 0%, transparent 4%, transparent 96%, #000 100%);
+  }
+
+  .hero__speakers {
+    top: 20px;                     /* sadržaj počinje na 40px, pa je slika na 60px od vrha */
+    left: 20px;                    /* kao original: poravnata levo, a ne centrirana */
+    transform: none;
+    width: 318px;
+    height: 215px;
+  }
+
+  .hero__grid {
+    display: block;
+    position: absolute;
+    top: 483px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 390px;
+    max-width: none;
+    height: 200px;
+    object-fit: cover;
+    z-index: 1;              /* iznad bine, ispod sadržaja (z-index 2) */
+  }
+
+  .hero__content {
+    padding: 211px 20px 0;   /* 40px (hero) + 211px = logo na 251px */
+  }
+
+  .hero__logo {
+    width: 120px;
+    height: 35px;
+  }
+
+  .hero__title {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.02em;       /* malo gušće nego original, da citat stane u jedan red (naš font je širi) */
+  }
+
+  .hero__sub {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .hero .btn-cta {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .hero__trust {
+    gap: 12px;
+    margin-top: 26px;
+  }
+}

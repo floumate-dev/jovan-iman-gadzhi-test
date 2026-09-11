@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Hustle Summit – Hero (vežba)</title>
+
+  <!-- Fontovi: Inter Tight (uži Inter) menja SF Compact Display (Apple font), Mona Sans je isti kao u originalu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Judson je serif font za "Episode 01" u Blueprint sekciji -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700;1,900&family=Mona+Sans:wght@500;700&family=Judson:wght@400&display=swap" rel="stylesheet">
+
+  <!-- CSS: zajednički stilovi, pa jedan fajl po sekciji -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections/hero.css">
+  <link rel="stylesheet" href="css/sections/blueprint.css">
+  <link rel="stylesheet" href="css/sections/sales.css">
+  <link rel="stylesheet" href="css/sections/details.css">
+  <link rel="stylesheet" href="css/sections/learn.css">
+  <link rel="stylesheet" href="css/sections/stories.css">
+  <link rel="stylesheet" href="css/sections/claim.css">
+  <link rel="stylesheet" href="css/sections/footer.css">
+</head>
+<body>
+
+  <!-- ========== HERO SEKCIJA ========== -->
+  <section class="hero">
+
+    <!-- Pozadinski sloj: bina + gradijenti -->
+    <div class="hero__stage" aria-hidden="true">
+      <img class="hero__bg" src="assets/img/bina.png" alt="">
+      <div class="hero__fade"></div>
+    </div>
+
+    <!-- Mreža "poda" iza dugmeta (vidi se samo na mobilnom) -->
+    <img class="hero__grid" src="assets/img/mreza.svg" alt="" aria-hidden="true">
+
+    <!-- Sadržaj preko pozadine -->
+    <div class="hero__content">
+      <!-- Govornici su deo sadržaja da bi se pomerali zajedno sa njim -->
+      <img class="hero__speakers" src="assets/img/govornici.png" alt="">
+      <img class="hero__logo" src="assets/img/logo.png" alt="Side Hustle Summit">
+
+      <div class="badge">
+        <span class="badge__dot"></span>
+        <p class="badge__text">LIVE VIRTUAL EVENT: <strong>SEP 6TH - SEP 13TH</strong></p>
+      </div>
+
+      <!-- Ručni prelomi da se redovi poklope sa originalom (font nije isti):
+           <br class="br-mob">  = prelom samo na mobilnom
+           <br class="br-desk"> = prelom samo na tabletu i desktopu
+           <br>                 = prelom na svim širinama -->
+      <h1 class="hero__title">
+        <em>“The Biggest Event Of The Decade…?”</em><br class="br-mob"> Build A
+        <strong>$373<br class="br-desk"> Per Day</strong> Online<br class="br-mob"> Income In Just
+        <strong>5 Days</strong> With AI
+      </h1>
+
+      <p class="hero__sub">
+        …without needing to quit your job, without needing<br class="br-mob"> to get on camera,
+        and without needing prior<br> experience. The last times we taught this,
+        beginners<br class="br-mob"> generated $8.9M, $15M, and $31M in tracked earnings.
+      </p>
+
+      <a class="btn-cta" href="#">
+        <span>SAVE MY FREE SPOT</span>
+        <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 0 0 L 14 0" transform="translate(5 12)"/>
+            <path d="M 0 0 L 7 7 L 0 14" transform="translate(12 5)"/>
+          </g>
+        </svg>
+      </a>
+
+      <ul class="hero__trust">
+        <li>
+          <!-- Ikonica: pozorišna maska -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 16.5 0.751 C 16.5 0.503 16.378 0.272 16.174 0.132 C 15.97 -0.009 15.71 -0.039 15.479 0.051 C 14.063 0.602 11.333 1.474 8.25 1.474 C 5.167 1.474 2.438 0.602 1.021 0.053 C 0.79 -0.037 0.531 -0.007 0.327 0.133 C 0.122 0.272 0 0.504 0 0.751 L 0 5.979 C 0 12.62 3.694 18.001 8.25 18.001 C 12.806 18.001 16.5 12.62 16.5 5.981 Z" transform="translate(3.75 3.749)"/>
+              <path d="M 0 0.75 C 0.412 0.29 1.208 0 1.875 0 C 2.542 0 3.338 0.29 3.75 0.75" transform="translate(13.5 11.25)"/>
+              <path d="M 0 0.75 C 0.412 0.29 1.208 0 1.875 0 C 2.542 0 3.338 0.29 3.75 0.75" transform="translate(6.75 11.25)"/>
+              <path d="M 6.442 0 C 5.643 0.951 4.464 1.5 3.221 1.5 C 1.979 1.5 0.8 0.951 0 0" transform="translate(8.779 15.75)"/>
+            </g>
+          </svg>
+          <span>No showing your face</span>
+        </li>
+        <li>
+          <!-- Ikonica: aktovka -->
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 0 0 L 3 0" transform="translate(10.5 10.5)"/>
+              <path d="M 0.75 13.5 C 0.336 13.5 0 13.164 0 12.75 L 0 0.75 C 0 0.336 0.336 0 0.75 0 L 17.25 0 C 17.664 0 18 0.336 18 0.75 L 18 12.75 C 18 13.164 17.664 13.5 17.25 13.5 Z" transform="translate(3 6)"/>
+              <path d="M 7.5 3 L 7.5 1.5 C 7.5 0.672 6.828 0 6 0 L 1.5 0 C 0.672 0 0 0.672 0 1.5 L 0 3" transform="translate(8.25 3)"/>
+              <path d="M 18 0 C 15.265 1.583 12.16 2.413 9 2.408 C 5.84 2.413 2.735 1.583 0 0.001" transform="translate(3 11.092)"/>
+            </g>
+          </svg>
+          <span>No experience needed</span>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+
+
+  <!-- ========== BLUEPRINT SEKCIJA: 5 kartica epizoda ==========
+       Duži tekstovi u stavkama su lorem ipsum iste dužine (broj znakova) kao originalni -->
+  <section class="blueprint">
+    <div class="blueprint__glow blueprint__glow--top" aria-hidden="true"></div>
+    <div class="blueprint__glow blueprint__glow--bottom" aria-hidden="true"></div>
+
+    <h2 class="blueprint__title">Your 5-Day<br class="br-mob"> Side Hustle <em>Blueprint</em></h2>
+
+    <div class="blueprint__rows">
+
+      <!-- ===== Red 1: epizode 01 i 02 ===== -->
+      <div class="blueprint__row">
+
+        <!-- Epizoda 01 -->
+        <article class="ep-card">
+          <div class="ep-card__head">
+            <svg class="ep-card__icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M248,32h0a8,8,0,0,0-8,8,52.66,52.66,0,0,1-3.57,17.39C232.38,67.22,225.7,72,216,72c-11.06,0-18.85-9.76-29.49-24.65C176,32.66,164.12,16,144,16c-16.39,0-29,8.89-35.43,25a66.07,66.07,0,0,0-3.9,15H88A16,16,0,0,0,72,72v9.59A88,88,0,0,0,112,248h1.59A88,88,0,0,0,152,81.59V72a16,16,0,0,0-16-16H120.88a46.76,46.76,0,0,1,2.69-9.37C127.62,36.78,134.3,32,144,32c11.06,0,18.85,9.76,29.49,24.65C184,71.34,195.88,88,216,88c16.39,0,29-8.89,35.43-25A68.69,68.69,0,0,0,256,40,8,8,0,0,0,248,32ZM140.8,94a72,72,0,1,1-57.6,0A8,8,0,0,0,88,86.66V72h48V86.66A8,8,0,0,0,140.8,94ZM111.89,209.32A8,8,0,0,1,104,216a8.52,8.52,0,0,1-1.33-.11,57.5,57.5,0,0,1-46.57-46.57,8,8,0,1,1,15.78-2.64,41.29,41.29,0,0,0,33.43,33.43A8,8,0,0,1,111.89,209.32Z"/></svg>
+            <h3 class="ep-card__num">Episode 01</h3>
+          </div>
+          <p class="ep-card__date">🗓️ September 6th ⏰ 1 PM Eastern<br class="br-mob"> Time</p>
+          <div class="ep-card__line"></div>
+          <h4 class="ep-card__title">The Best Side Hustle To Start in 2026</h4>
+          <div class="ep-card__line"></div>
+          <ul class="ep-card__list">
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M101.85,191.14C97.34,201,82.29,224,40,224a8,8,0,0,1-8-8c0-42.29,23-57.34,32.86-61.85a8,8,0,0,1,6.64,14.56c-6.43,2.93-20.62,12.36-23.12,38.91,26.55-2.5,36-16.69,38.91-23.12a8,8,0,1,1,14.56,6.64Zm122-144a16,16,0,0,0-15-15c-12.58-.75-44.73.4-71.4,27.07h0L88,108.7A8,8,0,0,1,76.67,97.39l26.56-26.57A4,4,0,0,0,100.41,64H74.35A15.9,15.9,0,0,0,63,68.68L28.7,103a16,16,0,0,0,9.07,27.16l38.47,5.37,44.21,44.21,5.37,38.49a15.94,15.94,0,0,0,10.78,12.92,16.11,16.11,0,0,0,5.1.83A15.91,15.91,0,0,0,153,227.3L187.32,193A16,16,0,0,0,192,181.65V155.59a4,4,0,0,0-6.83-2.82l-26.57,26.56a8,8,0,0,1-11.71-.42,8.2,8.2,0,0,1,.6-11.1l49.27-49.27h0C223.45,91.86,224.6,59.71,223.85,47.12Z"/></svg>
+              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor pariatur.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M64.12,147.8a4,4,0,0,1-4,4.2H16a8,8,0,0,1-7.8-6.17,8.35,8.35,0,0,1,1.62-6.93A67.79,67.79,0,0,1,37,117.51a40,40,0,1,1,66.46-35.8,3.94,3.94,0,0,1-2.27,4.18A64.08,64.08,0,0,0,64,144C64,145.28,64,146.54,64.12,147.8Zm182-8.91A67.76,67.76,0,0,0,219,117.51a40,40,0,1,0-66.46-35.8,3.94,3.94,0,0,0,2.27,4.18A64.08,64.08,0,0,1,192,144c0,1.28,0,2.54-.12,3.8a4,4,0,0,0,4,4.2H240a8,8,0,0,0,7.8-6.17A8.33,8.33,0,0,0,246.17,138.89Zm-89,43.18a48,48,0,1,0-58.37,0A72.13,72.13,0,0,0,65.07,212,8,8,0,0,0,72,224H184a8,8,0,0,0,6.93-12A72.15,72.15,0,0,0,157.19,182.07Z"/></svg>
+              <p>Exercitation humanum mollit occaecat dolor cillum nostrud momentum summum veniam labore numquam.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48ZM172,96a12,12,0,1,1-12,12A12,12,0,0,1,172,96ZM96,184H80a16,16,0,0,1,0-32H96ZM84,120a12,12,0,1,1,12-12A12,12,0,0,1,84,120Zm60,64H112V152h32Zm32,0H160V152h16a16,16,0,0,1,0,32Z"/></svg>
+              <p>Aliqua, ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
+            </li>
+          </ul>
+          <!-- Ukrasi -->
+          <img class="ep-card__decor ep-card__decor--circle" src="assets/img/blueprint/krug.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--rays" src="assets/img/blueprint/zraci.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--accent" src="assets/img/blueprint/zraci-akcent.svg" alt="">
+        </article>
+
+        <!-- Epizoda 02 -->
+        <article class="ep-card">
+          <div class="ep-card__head">
+            <svg class="ep-card__icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M223.85,47.12a16,16,0,0,0-15-15c-12.58-.75-44.73.4-71.41,27.07L132.69,64H74.36A15.91,15.91,0,0,0,63,68.68L28.7,103a16,16,0,0,0,9.07,27.16l38.47,5.37,44.21,44.21,5.37,38.49a15.94,15.94,0,0,0,10.78,12.92,16.11,16.11,0,0,0,5.1.83A15.91,15.91,0,0,0,153,227.3L187.32,193A15.91,15.91,0,0,0,192,181.64V123.31l4.77-4.77C223.45,91.86,224.6,59.71,223.85,47.12ZM74.36,80h42.33L77.16,119.52,40,114.34Zm74.41-9.45a76.65,76.65,0,0,1,59.11-22.47,76.46,76.46,0,0,1-22.42,59.16L128,164.68,91.32,128ZM176,181.64,141.67,216l-5.19-37.17L176,139.31Zm-74.16,9.5C97.34,201,82.29,224,40,224a8,8,0,0,1-8-8c0-42.29,23-57.34,32.86-61.85a8,8,0,0,1,6.64,14.56c-6.43,2.93-20.62,12.36-23.12,38.91,26.55-2.5,36-16.69,38.91-23.12a8,8,0,1,1,14.56,6.64Z"/></svg>
+            <h3 class="ep-card__num">Episode 02</h3>
+          </div>
+          <p class="ep-card__date">🗓️ September 7th ⏰ 1 PM Eastern Time</p>
+          <div class="ep-card__line"></div>
+          <h4 class="ep-card__title">How To Build Your First Side Hustle With AI</h4>
+          <div class="ep-card__line"></div>
+          <ul class="ep-card__list">
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M237.94,107.21a8,8,0,0,0-3.89-5.4l-29.83-17-.12-33.62a8,8,0,0,0-2.83-6.08,111.91,111.91,0,0,0-36.72-20.67,8,8,0,0,0-6.46.59L128,41.85,97.88,25a8,8,0,0,0-6.47-.6A111.92,111.92,0,0,0,54.73,45.15a8,8,0,0,0-2.83,6.07l-.15,33.65-29.83,17a8,8,0,0,0-3.89,5.4,106.47,106.47,0,0,0,0,41.56,8,8,0,0,0,3.89,5.4l29.83,17,.12,33.63a8,8,0,0,0,2.83,6.08,111.91,111.91,0,0,0,36.72,20.67,8,8,0,0,0,6.46-.59L128,214.15,158.12,231a7.91,7.91,0,0,0,3.9,1,8.09,8.09,0,0,0,2.57-.42,112.1,112.1,0,0,0,36.68-20.73,8,8,0,0,0,2.83-6.07l.15-33.65,29.83-17a8,8,0,0,0,3.89-5.4A106.47,106.47,0,0,0,237.94,107.21ZM128,168a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"/></svg>
+              <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in incididunt.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M208,96a12,12,0,1,1,12,12A12,12,0,0,1,208,96ZM196,72a12,12,0,1,0-12-12A12,12,0,0,0,196,72Zm28.66,56a8,8,0,0,0-8.63,7.31A88.12,88.12,0,1,1,120.66,40,8,8,0,0,0,119.34,24,104.12,104.12,0,1,0,232,136.66,8,8,0,0,0,224.66,128ZM128,56a72,72,0,1,1-72,72A72.08,72.08,0,0,1,128,56Zm-8,72a8,8,0,0,0,8,8h48a8,8,0,0,0,0-16H136V80a8,8,0,0,0-16,0Zm40-80a12,12,0,1,0-12-12A12,12,0,0,0,160,48Z"/></svg>
+              <p>Dolore, eu fugiat nulla pariatur excepteur sint occaecat cupidatat non.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M176,232a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,232Zm40-128a87.55,87.55,0,0,1-33.64,69.21A16.24,16.24,0,0,0,176,186v6a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16v-6a16,16,0,0,0-6.23-12.66A87.59,87.59,0,0,1,40,104.49C39.74,56.83,78.26,17.14,125.88,16A88,88,0,0,1,216,104Zm-50.34,2.34a8,8,0,0,0-11.32,0L128,132.69l-26.34-26.35a8,8,0,0,0-11.32,11.32L120,147.31V184a8,8,0,0,0,16,0V147.31l29.66-29.65A8,8,0,0,0,165.66,106.34Z"/></svg>
+              <p>Pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est ut.</p>
+            </li>
+          </ul>
+          <img class="ep-card__decor ep-card__decor--circle" src="assets/img/blueprint/krug.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--rays" src="assets/img/blueprint/zraci.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--accent" src="assets/img/blueprint/zraci-akcent.svg" alt="">
+        </article>
+      </div>
+
+      <!-- ===== Red 2: epizode 03 i 04 (na desktopu iste visine) ===== -->
+      <div class="blueprint__row blueprint__row--stretch">
+
+        <!-- Epizoda 03 -->
+        <article class="ep-card">
+          <div class="ep-card__head">
+            <svg class="ep-card__icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M230.91,172A8,8,0,0,1,228,182.91l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,36,169.09l92,53.65,92-53.65A8,8,0,0,1,230.91,172ZM220,121.09l-92,53.65L36,121.09A8,8,0,0,0,28,134.91l96,56a8,8,0,0,0,8.06,0l96-56A8,8,0,1,0,220,121.09ZM24,80a8,8,0,0,1,4-6.91l96-56a8,8,0,0,1,8.06,0l96,56a8,8,0,0,1,0,13.82l-96,56a8,8,0,0,1-8.06,0l-96-56A8,8,0,0,1,24,80Zm23.88,0L128,126.74,208.12,80,128,33.26Z"/></svg>
+            <h3 class="ep-card__num">Episode 03</h3>
+          </div>
+          <p class="ep-card__date">🗓️ September 8th ⏰ 1 PM Eastern<br class="br-mob"> Time</p>
+          <div class="ep-card__line"></div>
+          <h4 class="ep-card__title"><span class="text-gold">The Untapped Digital Goldmine</span></h4>
+          <div class="ep-card__line"></div>
+          <ul class="ep-card__list">
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm51.58,57.79-32,64a4.08,4.08,0,0,1-1.79,1.79l-64,32a4,4,0,0,1-5.37-5.37l32-64a4.08,4.08,0,0,1,1.79-1.79l64-32A4,4,0,0,1,179.58,81.79Z"/></svg>
+              <p>Mollit anim id est laborum lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor enim.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M200,75.64V40a16,16,0,0,0-16-16H72A16,16,0,0,0,56,40V76a16.07,16.07,0,0,0,6.4,12.8L114.67,128,62.4,167.2A16.07,16.07,0,0,0,56,180v36a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V180.36a16.09,16.09,0,0,0-6.35-12.77L141.27,128l52.38-39.59A16.09,16.09,0,0,0,200,75.64ZM184,40V64H72V40Zm0,176H72V180l56-42,56,42.35Z"/></svg>
+              <p>Memoriam eiusmod qui enim reprehenderit dolor maecenas in numquam lorem officia anim consectetur tempor.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128.09,57.38a36,36,0,0,1,55.17-27.82,4,4,0,0,1-.56,7A52.06,52.06,0,0,0,152,84c0,1.17,0,2.34.12,3.49a4,4,0,0,1-6,3.76A36,36,0,0,1,128.09,57.38ZM240,160.61a24.47,24.47,0,0,1-13.6,22l-.44.2-38.83,16.54a6.94,6.94,0,0,1-1.19.4l-64,16A7.93,7.93,0,0,1,120,216H16A16,16,0,0,1,0,200V160a16,16,0,0,1,16-16H44.69l22.62-22.63A31.82,31.82,0,0,1,89.94,112H140a28,28,0,0,1,27.25,34.45l41.84-9.62A24.61,24.61,0,0,1,240,160.61Zm-16,0a8.61,8.61,0,0,0-10.87-8.3l-.31.08-67,15.41a8.32,8.32,0,0,1-1.79.2H112a8,8,0,0,1,0-16h28a12,12,0,0,0,0-24H89.94a15.86,15.86,0,0,0-11.31,4.69L56,155.31V200h63l62.43-15.61,38-16.18A8.56,8.56,0,0,0,224,160.61ZM168,84a36,36,0,1,0,36-36A36,36,0,0,0,168,84Z"/></svg>
+              <p>Aliqua, ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.</p>
+            </li>
+          </ul>
+          <img class="ep-card__decor ep-card__decor--circle" src="assets/img/blueprint/krug.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--rays" src="assets/img/blueprint/zraci.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--accent" src="assets/img/blueprint/zraci-akcent.svg" alt="">
+        </article>
+
+        <!-- Epizoda 04 -->
+        <article class="ep-card">
+          <div class="ep-card__head">
+            <svg class="ep-card__icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg>
+            <h3 class="ep-card__num">Episode 04</h3>
+          </div>
+          <p class="ep-card__date">🗓️ September 9th ⏰ 1 PM Eastern<br class="br-mob"> Time</p>
+          <div class="ep-card__line"></div>
+          <h4 class="ep-card__title">Russell Brunson - The Billion-Dollar Mentor</h4>
+          <div class="ep-card__line"></div>
+          <ul class="ep-card__list">
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M176,207.24a119,119,0,0,0,16-7.73V240a8,8,0,0,1-16,0Zm11.76-88.43-56-29.87a8,8,0,0,0-7.52,14.12L171,128l17-9.06Zm64-29.87-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V130.67L171,128l-43,22.93L43.83,106l0,0L25,96,128,41.07,231,96l-18.78,10-.06,0L188,118.94a8,8,0,0,1,4,6.93v73.64a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12Z"/></svg>
+              <p>Quam nunc ad minim eiusmod omnium lorem aliqua sed ut ea summum humanum id maximus eu ut.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32L167.6,99.71h0l-37.71,37.71-23.95,23.95a40,40,0,0,0,62-35.67,8,8,0,1,1,16-.9,56,56,0,0,1-95.5,42.79h0a56,56,0,0,1,73.13-84.43L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></svg>
+              <p>Ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute sed.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM96,176a8,8,0,0,0-1.94.24L40,189.75V62.25L95.07,48.48l.93.46Zm120,17.75-55.07,13.77-.93-.46V80a8,8,0,0,0,1.94-.23L216,66.25Z"/></svg>
+              <p>In aliqua ea ex aliquam dolor irure minim in adipiscing nam culpa magnam summum commodo occaecat vivamus ipsum sed maecenas mollis dolor ut excepteur elit a.</p>
+            </li>
+          </ul>
+          <img class="ep-card__decor ep-card__decor--circle" src="assets/img/blueprint/krug.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--rays" src="assets/img/blueprint/zraci.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--accent" src="assets/img/blueprint/zraci-akcent.svg" alt="">
+        </article>
+      </div>
+
+      <!-- ===== Red 3: epizoda 05 (LIVE, crvena tema), sama i centrirana ===== -->
+      <div class="blueprint__row blueprint__row--single">
+        <article class="ep-card ep-card--live">
+          <div class="ep-card__head">
+            <svg class="ep-card__icon" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm0-160a72,72,0,1,0,72,72A72.08,72.08,0,0,0,128,56Zm0,128a56,56,0,1,1,56-56A56.06,56.06,0,0,1,128,184Z"/></svg>
+            <h3 class="ep-card__num">Episode 05</h3>
+          </div>
+          <p class="ep-card__date">🗓️ September 13th ⏰ 1 PM Eastern<br class="br-mob"> Time</p>
+          <div class="ep-card__line"></div>
+          <h4 class="ep-card__title">Building Your Side Hustle <strong class="text-live">LIVE!</strong></h4>
+          <div class="ep-card__line"></div>
+          <ul class="ep-card__list">
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M192,72V184a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V72A16,16,0,0,1,32,56H176A16,16,0,0,1,192,72Zm58,.25a8.23,8.23,0,0,0-6.63,1.22L209.78,95.86A4,4,0,0,0,208,99.19v57.62a4,4,0,0,0,1.78,3.33l33.78,22.52a8,8,0,0,0,8.58.19,8.33,8.33,0,0,0,3.86-7.17V80A8,8,0,0,0,250,72.25Z"/></svg>
+              <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sed.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M192,72V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V72a8,8,0,0,1,8-8H184A8,8,0,0,1,192,72Zm24-40H72a8,8,0,0,0,0,16H208V184a8,8,0,0,0,16,0V40A8,8,0,0,0,216,32Z"/></svg>
+              <p>Mollit anim id est laborum lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor magna.</p>
+            </li>
+            <li class="ep-card__item">
+              <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M231.69,93.81,217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.81A7.94,7.94,0,0,0,24,96v16a40,40,0,0,0,16,32v72a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32V96A7.94,7.94,0,0,0,231.69,93.81ZM88,112a24,24,0,0,1-35.12,21.26,7.88,7.88,0,0,0-1.82-1.06A24,24,0,0,1,40,112v-8H88Zm64,0a24,24,0,0,1-48,0v-8h48Zm64,0a24,24,0,0,1-11.07,20.2,8.08,8.08,0,0,0-1.8,1.05A24,24,0,0,1,168,112v-8h48Z"/></svg>
+              <p>Ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu enim.</p>
+            </li>
+          </ul>
+          <img class="ep-card__decor ep-card__decor--circle" src="assets/img/blueprint/krug.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--rays" src="assets/img/blueprint/zraci.svg" alt="">
+          <img class="ep-card__decor ep-card__decor--accent" src="assets/img/blueprint/zraci-akcent.svg" alt="">
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========== SALES SEKCIJA: rezultati prethodnih eventa ==========
+       Duži pasusi su lorem ipsum iste dužine, sa podebljanim delovima na istim mestima kao original -->
+  <section class="sales">
+    <div class="sales__inner">
+
+      <div class="sales__head">
+        <h2 class="sales__title"><span class="text-yellow"><strong>$55.6M+</strong> in Tracked Sales</span> From Those<br class="br-lg"> Who Implemented This System.</h2>
+        <div class="sales__copy">
+          <p>Vivamus ut ipsum in mollit magna consectetur cillum proident et duis numquam in a <strong>quis nostrud sunt ex vivamus qui id aliquip.</strong></p>
+          <p><strong>The second time? $15M.</strong></p>
+          <p><strong>The third? $31M.</strong></p>
+        </div>
+      </div>
+
+      <!-- Dve slike jedna pored druge -->
+      <div class="sales__row">
+        <div class="sales__shot"><img src="assets/img/sales/zarada-1.webp" alt="Rezultati prvog eventa"></div>
+        <div class="sales__shot"><img src="assets/img/sales/zarada-2.webp" alt="Rezultati drugog eventa"></div>
+      </div>
+
+      <!-- Treća slika, pola širine, centrirana -->
+      <div class="sales__shot sales__shot--wide"><img src="assets/img/sales/zarada-3.png" alt="Rezultati trećeg eventa"></div>
+
+      <p class="sales__outro">Duis laboris fugiat enim <strong>proident enim</strong> amet dolor laborum ut sunt cillum non excepteur nulla magna ipsum velit do eiusmod consectetur enim pariatur in lorem ad in maecenas mauris sed <strong>ad mollit aliquip ut.</strong></p>
+
+    </div>
+  </section>
+
+
+  <!-- ========== DETAILS SEKCIJA: WHAT / WHEN / WHERE ==========
+       Pasusi za WHAT i WHERE su lorem ipsum iste dužine kao originalni tekst -->
+  <section class="details">
+    <div class="details__card">
+
+      <!-- Ukrasi na vrhu okvira -->
+      <div class="details__line" aria-hidden="true"></div>
+      <img class="details__dots" src="assets/img/details/tackice.png" alt="">
+      <img class="details__rays" src="assets/img/blueprint/zraci-akcent.svg" alt="">
+
+      <h2 class="details__title">All The Details</h2>
+
+      <div class="details__content">
+        <div class="details__row">
+
+          <!-- WHAT -->
+          <article class="info-card info-card--what">
+            <div class="info-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 2.856 16.644 C 1.993 15.782 2.565 13.97 2.126 12.908 C 1.671 11.813 0 10.922 0 9.75 C 0 8.578 1.671 7.688 2.126 6.592 C 2.565 5.531 1.993 3.718 2.856 2.856 C 3.718 1.993 5.531 2.565 6.592 2.126 C 7.692 1.671 8.578 0 9.75 0 C 10.922 0 11.813 1.671 12.908 2.126 C 13.97 2.565 15.782 1.993 16.644 2.856 C 17.507 3.718 16.935 5.53 17.374 6.592 C 17.829 7.692 19.5 8.578 19.5 9.75 C 19.5 10.922 17.829 11.813 17.374 12.908 C 16.935 13.97 17.507 15.782 16.644 16.644 C 15.782 17.507 13.97 16.935 12.908 17.374 C 11.813 17.829 10.922 19.5 9.75 19.5 C 8.578 19.5 7.688 17.829 6.592 17.374 C 5.531 16.935 3.718 17.507 2.856 16.644 Z" transform="translate(2.25 2.25)"/>
+                  <path d="M 3 6 L 3 5.25 C 4.657 5.25 6 4.074 6 2.625 C 6 1.176 4.657 0 3 0 C 1.343 0 0 1.176 0 2.625 L 0 3" transform="translate(9 7.5)"/>
+                </g>
+                <path fill="currentColor" d="M 0 1.125 C 0 0.504 0.504 0 1.125 0 C 1.746 0 2.25 0.504 2.25 1.125 C 2.25 1.746 1.746 2.25 1.125 2.25 C 0.504 2.25 0 1.746 0 1.125 Z" transform="translate(10.875 15.75)"/>
+              </svg>
+            </div>
+            <div class="info-card__text">
+              <h3 class="info-card__label">WHAT</h3>
+              <p>Tempor vivamus consectetur occaecat esse magnam dolor adipiscing ex enim cupidatat ad dolore aliqua mauris velit eu ipsum veniam sint proident aliquip.</p>
+            </div>
+          </article>
+
+          <!-- WHEN -->
+          <article class="info-card info-card--when">
+            <div class="info-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 0 9 C 0 4.029 4.029 0 9 0 C 13.971 0 18 4.029 18 9 C 18 13.971 13.971 18 9 18 C 4.029 18 0 13.971 0 9 Z" transform="translate(3 3)"/>
+                  <path d="M 0 0 L 0 5.25 L 5.25 5.25" transform="translate(12 6.75)"/>
+                </g>
+              </svg>
+            </div>
+            <div class="info-card__text">
+              <h3 class="info-card__label">WHEN</h3>
+              <p>5 days starting September 6th. Each session runs approximately 1 hour.</p>
+            </div>
+          </article>
+
+          <!-- WHERE -->
+          <article class="info-card info-card--where">
+            <div class="info-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 0.75 12 C 0.336 12 0 11.664 0 11.25 L 0 0.75 C 0 0.336 0.336 0 0.75 0 L 15.75 0 C 16.164 0 16.5 0.336 16.5 0.75 L 16.5 11.25 C 16.5 11.664 16.164 12 15.75 12 Z" transform="translate(2.25 6)"/>
+                  <path d="M 0 3 L 4.5 0 L 4.5 9 L 0 6" transform="translate(18.75 7.5)"/>
+                </g>
+              </svg>
+            </div>
+            <div class="info-card__text">
+              <h3 class="info-card__label">WHERE</h3>
+              <p>Ipsum minim laboris laborum qui est exercitation amet eu reprehenderit tempor cupidatat enim dolore a.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="details__cta">
+          <a class="btn-cta" href="#">
+            <span>SAVE MY FREE SPOT</span>
+            <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 0 0 L 14 0" transform="translate(5 12)"/>
+                <path d="M 0 0 L 7 7 L 0 14" transform="translate(12 5)"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========== LEARN SEKCIJA: 8 kartica (desktop mreža, mobilni slajder) ==========
+       Opisi u karticama su lorem ipsum iste dužine kao originalni tekst -->
+  <section class="learn">
+    <img class="learn__pattern" src="assets/img/learn/pozadina-uzorak.svg" alt="" aria-hidden="true">
+
+    <div class="learn__content">
+      <div class="learn__head">
+        <h2 class="learn__title">What You'll Learn<br class="br-mob"> For FREE in 5 Days</h2>
+        <p class="learn__sub">Five days that could change<br class="br-mob"> the next 12 months of your life</p>
+      </div>
+
+      <div class="learn__slider">
+        <button class="learn__nav learn__nav--prev is-hidden" type="button" aria-label="Previous">
+          <img src="assets/img/learn/strelica-levo.svg" alt="">
+        </button>
+
+        <ul class="learn__track">
+          <li class="learn-card">
+            <img class="learn-card__img" src="assets/img/learn/kartica-1.webp" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>$55.6M Million Dollars</span></p>
+              <p class="learn-card__body">Momentum irure dolore cillum aliqua in minim enim voluptate pariatur et ipsum id magnam tempor velit duis ad nisi sit ea incididunt dolor esse dolore fugiat qui ut sed.</p>
+            </div>
+          </li>
+          <li class="learn-card learn-card--fixed">
+            <img class="learn-card__img learn-card__img--short" src="assets/img/learn/kartica-2.webp" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>AI’s Unfair Advantage</span></p>
+              <p class="learn-card__body">Minim occaecat dolor magna nisi veniam qui dolore reprehenderit ut incididunt numquam adipiscing esse maecenas vivamus in aliquip nulla ad duis a.</p>
+            </div>
+          </li>
+          <li class="learn-card">
+            <img class="learn-card__img" src="assets/img/learn/kartica-3.png" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>Semi Passive Income</span></p>
+              <p class="learn-card__body">Pariatur, qui vivamus ullamco culpa cupidatat nulla ut id et elit ex ea labore magnam tempor dolore cillum ipsum eu deserunt mauris minim proident occaecat fugiat do lorem in non.</p>
+            </div>
+          </li>
+          <li class="learn-card">
+            <img class="learn-card__img" src="assets/img/learn/kartica-4.png" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>Its Now or NEVER</span></p>
+              <p class="learn-card__body">Ut, ut in laborum occaecat esse aliquip id nisi ex dolore labore ad deserunt duis voluptate momentum incididunt maecenas sit anim et minim tempor cupidatat commodo eiusmod.</p>
+            </div>
+          </li>
+          <li class="learn-card">
+            <img class="learn-card__img" src="assets/img/learn/kartica-5.png" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>How To be on the Winning Side</span></p>
+              <p class="learn-card__body">Numquam voluptate ullamco magnam reprehenderit excepteur incididunt dolor laborum cillum sed dolor ea duis eiusmod magna esse enim proident id est ad irure occaecat a.</p>
+            </div>
+          </li>
+          <li class="learn-card learn-card--fixed learn-card--tall">
+            <img class="learn-card__img" src="assets/img/learn/kartica-6.webp" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>See Results ASAP</span></p>
+              <p class="learn-card__body">Velit in ad id momentum irure magna esse sint non aute culpa aliquip dolor elit aliqua et laboris pariatur do adipiscing nulla nostrud tempor est magna.</p>
+            </div>
+          </li>
+          <li class="learn-card">
+            <img class="learn-card__img" src="assets/img/learn/kartica-7.png" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>Second Income Safety</span></p>
+              <p class="learn-card__body">Ut enim fugiat eu officia proident consequat laboris do ut mauris non qui dolore aliquip ad duis quis ipsum culpa sed nisi sit id magna ullamco tempor esse eiusmod ut.</p>
+            </div>
+          </li>
+          <li class="learn-card learn-card--fixed learn-card--tall">
+            <img class="learn-card__img" src="assets/img/learn/kartica-8.webp" alt="">
+            <div class="learn-card__text">
+              <p class="learn-card__title"><span>The Lazy Money Method</span></p>
+              <p class="learn-card__body">Elit, mauris dolore et aute pariatur incididunt deserunt qui occaecat est sit reprehenderit adipiscing voluptate in tempor non laboris nostrud duis in.</p>
+            </div>
+          </li>
+        </ul>
+
+        <button class="learn__nav learn__nav--next" type="button" aria-label="Next">
+          <img src="assets/img/learn/strelica-desno.svg" alt="">
+        </button>
+      </div>
+    </div>
+
+    <div class="learn__cta">
+      <a class="btn-cta" href="#">
+        <span>SAVE MY FREE SPOT</span>
+        <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 0 0 L 14 0" transform="translate(5 12)"/>
+            <path d="M 0 0 L 7 7 L 0 14" transform="translate(12 5)"/>
+          </g>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ========== STORIES SEKCIJA: "Why Should You Listen To Us?" (6 priča) ==========
+       Pasusi su lorem ipsum iste dužine kao originalni tekst -->
+  <section class="stories">
+    <h2 class="stories__title">Why Should You Listen To Us?</h2>
+
+    <!-- Priča 1 -->
+    <article class="story story--media-left">
+      <div class="story__marker" aria-hidden="true">
+        <span class="story__star">✧</span>
+        <span class="story__line"></span>
+      </div>
+      <h3 class="story__title"><span>It All Started With A Kid, A Laptop, and <strong>Russell’s Books</strong></span></h3>
+      <div class="story__media">
+        <img src="assets/img/story/prica-1.webp" alt="">
+      </div>
+      <div class="story__text">
+        <p>Commodo tempor aute voluptate enim eu et incididunt exercitation cillum ut laboris deserunt sed aliqua minim enim.</p>
+        <p>Laboris ut lorem nulla pariatur momentum mauris elit nisi velit nostrud aute dolor ea dolore sed ut consectetur et sed.</p>
+        <p>In cillum lorem magnam sint numquam elit eiusmod veniam nisi laborum in tempor.</p>
+        <p>Commodo incididunt voluptate quis amet ex nulla proident sint ipsum ad laboris velit officia aliquip ut.</p>
+      </div>
+    </article>
+
+    <!-- Priča 2 -->
+    <article class="story story--media-right">
+      <div class="story__marker" aria-hidden="true">
+        <span class="story__star">✧</span>
+        <span class="story__line"></span>
+      </div>
+      <h3 class="story__title story__title--fit-md"><span>Turned My Side Hustle Into A <strong>Multi-Million Dollar</strong> Business</span></h3>
+      <div class="story__media story__media--cover">
+        <img src="assets/img/story/prica-2.png" alt="">
+        <img class="story__logo" src="assets/img/story/prica-2-logo.png" alt="">
+      </div>
+      <div class="story__text">
+        <p>Incididunt cupidatat exercitation ut adipiscing mollit excepteur esse sint officia do elit ad duis et magna.</p>
+        <p>Esse nostrud ex consectetur laborum eiusmod veniam adipiscing quis cupidatat tempor numquam occaecat.</p>
+        <p>Amet, et voluptate enim numquam fugiat aute anim sed aliquip duis minim cupidatat lorem magnam in ipsum magna cillum sit vivamus ut maecenas sunt ad laboris occaecat id do adipiscing dolore.</p>
+      </div>
+    </article>
+
+    <!-- Priča 3 -->
+    <article class="story story--media-left">
+      <div class="story__marker" aria-hidden="true">
+        <span class="story__star">✧</span>
+        <span class="story__line"></span>
+      </div>
+      <h3 class="story__title story__title--fit-lg"><span>Became Co-Owner Of Whop, A Platform That Has Processed Over <strong>$4 Billion In Online Sales</strong></span></h3>
+      <div class="story__media">
+        <img src="assets/img/story/prica-3.png" alt="">
+      </div>
+      <div class="story__text">
+        <p>Sunt proident et mollit ipsum nisi elit laborum magna consequat id dolor culpa anim numquam in duis mauris ex fugiat reprehenderit ut officia sed enim.</p>
+        <p>Enim sed consectetur ut fugiat laboris ut cillum qui pariatur tempor laborum mollit amet anim duis sunt ad a.</p>
+        <p>Consequat ipsum nostrud nisi laboris dolor cillum aute deserunt sunt elit eu dolore consectetur amet dolore sit adipiscing eiusmod enim.</p>
+        <p>Proident adipiscing id sit officia ut non ut incididunt in eu mauris magna.</p>
+      </div>
+    </article>
+
+    <!-- Priča 4 (tri slike iz sekcije sa zaradom) -->
+    <article class="story story--media-right">
+      <div class="story__marker" aria-hidden="true">
+        <span class="story__star">✧</span>
+        <span class="story__line"></span>
+      </div>
+      <h3 class="story__title"><span>Attendees From Previous Challenges Generated <strong>$55.6M+</strong> In Tracked Earnings</span></h3>
+      <div class="story__media story__gallery">
+        <img src="assets/img/sales/zarada-1.webp" alt="">
+        <img src="assets/img/sales/zarada-3.png" alt="">
+        <img src="assets/img/sales/zarada-2.webp" alt="">
+      </div>
+      <div class="story__text">
+        <p>In, consequat et cupidatat sunt excepteur deserunt incididunt dolore aliquip sit ut nisi <strong>Event 1:</strong> consequat incididunt ex cupidatat lorem sed <strong>Event 2:</strong> id cupidatat laboris numquam sunt enim <strong>Event 3:</strong> momentum ut.</p>
+        <p><strong>Total: $55.6M+</strong> non ullamco dolor sed mauris reprehenderit dolore numquam sunt labore mollit ea commodo culpa ex laboris quis laborum anim consectetur ut.</p>
+        <p>Laborum do pariatur sed officia sint ad maecenas amet lorem sit adipiscing ut culpa dolor numquam et magnam mauris id consectetur sed.</p>
+      </div>
+    </article>
+
+    <!-- Priča 5 -->
+    <article class="story story--media-left">
+      <div class="story__marker" aria-hidden="true">
+        <span class="story__star">✧</span>
+        <span class="story__line"></span>
+      </div>
+      <h3 class="story__title story__title--balance"><span>Russell Brunson: The Man Behind <strong>$10.4 Billion</strong> In Online Revenue</span></h3>
+      <div class="story__media">
+        <img src="assets/img/story/prica-5.png" alt="Russell Brunson handing a prize to Alex Hormozi">
+      </div>
+      <div class="story__text">
+        <p>Nulla sit quis ut cillum deserunt labore sint maecenas sed lorem a.</p>
+        <p>Cillum velit sed consectetur eu magna aliquip dolore id ut dolore eiusmod ut excepteur quis a.</p>
+        <p>Ut consectetur cupidatat culpa proident id aliqua exercitation ut est nulla dolor adipiscing sunt ipsum deserunt maecenas elit irure aliquip incididunt dolore magna esse ex duis minim ad ut officia ut.</p>
+        <p>Ipsum anim nisi in ut sed dolor vivamus pariatur incididunt mauris eu sed <strong>aute nostrud numquam veniam enim</strong> nulla commodo tempor quis proident do id lorem eiusmod minim labore magna ipsum a.</p>
+      </div>
+    </article>
+
+    <!-- Priča 6 (poslednja, bez linije ispod zvezdice) -->
+    <article class="story story--media-right">
+      <div class="story__marker" aria-hidden="true">
+        <span class="story__star">✧</span>
+      </div>
+      <h3 class="story__title story__title--balance story__title--fit-sm"><span>Now They’re Joining Forces For The <strong>BIGGEST</strong> Event Of The Decade. For Free.</span></h3>
+      <div class="story__media">
+        <img src="assets/img/story/prica-6.webp" alt="">
+      </div>
+      <div class="story__text">
+        <p>Irure pariatur laboris tempor eiusmod labore cupidatat enim ad duis non do fugiat ut in id proident in culpa ut ex elit in minim momentum eu aute mauris cillum aliqua aliquip.</p>
+        <p>Velit voluptate esse do officia dolore exercitation in dolore duis enim.</p>
+        <p>Irure numquam excepteur ut vivamus in aute enim proident mauris velit dolor mollit sit non qui minim sed occaecat cupidatat aliquip elit voluptate commodo magna magna.</p>
+        <p>Quis aliquip eu ea est incididunt dolore sit commodo momentum nostrud mauris ullamco ad dolore.</p>
+      </div>
+    </article>
+  </section>
+
+
+  <!-- Prazan razmak od 1px (postoji i u originalu) -->
+  <div class="spacer-1px" aria-hidden="true"></div>
+
+
+  <!-- ========== QUICK RECAP: isti raspored i CSS kao "All The Details" ========== -->
+  <section class="details">
+    <div class="details__card">
+
+      <!-- Ukrasi na vrhu okvira -->
+      <div class="details__line" aria-hidden="true"></div>
+      <img class="details__dots" src="assets/img/details/tackice.png" alt="">
+      <img class="details__rays" src="assets/img/blueprint/zraci-akcent.svg" alt="">
+
+      <h2 class="details__title">Quick Recap</h2>
+
+      <div class="details__content">
+        <div class="details__row">
+
+          <!-- WHAT -->
+          <article class="info-card info-card--what">
+            <div class="info-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 2.856 16.644 C 1.993 15.782 2.565 13.97 2.126 12.908 C 1.671 11.813 0 10.922 0 9.75 C 0 8.578 1.671 7.688 2.126 6.592 C 2.565 5.531 1.993 3.718 2.856 2.856 C 3.718 1.993 5.531 2.565 6.592 2.126 C 7.692 1.671 8.578 0 9.75 0 C 10.922 0 11.813 1.671 12.908 2.126 C 13.97 2.565 15.782 1.993 16.644 2.856 C 17.507 3.718 16.935 5.53 17.374 6.592 C 17.829 7.692 19.5 8.578 19.5 9.75 C 19.5 10.922 17.829 11.813 17.374 12.908 C 16.935 13.97 17.507 15.782 16.644 16.644 C 15.782 17.507 13.97 16.935 12.908 17.374 C 11.813 17.829 10.922 19.5 9.75 19.5 C 8.578 19.5 7.688 17.829 6.592 17.374 C 5.531 16.935 3.718 17.507 2.856 16.644 Z" transform="translate(2.25 2.25)"/>
+                  <path d="M 3 6 L 3 5.25 C 4.657 5.25 6 4.074 6 2.625 C 6 1.176 4.657 0 3 0 C 1.343 0 0 1.176 0 2.625 L 0 3" transform="translate(9 7.5)"/>
+                </g>
+                <path fill="currentColor" d="M 0 1.125 C 0 0.504 0.504 0 1.125 0 C 1.746 0 2.25 0.504 2.25 1.125 C 2.25 1.746 1.746 2.25 1.125 2.25 C 0.504 2.25 0 1.746 0 1.125 Z" transform="translate(10.875 15.75)"/>
+              </svg>
+            </div>
+            <div class="info-card__text">
+              <h3 class="info-card__label">WHAT</h3>
+              <p>Tempor vivamus consectetur occaecat esse magnam dolor adipiscing ex enim cupidatat ad dolore aliqua mauris velit eu ipsum veniam sint proident aliquip.</p>
+            </div>
+          </article>
+
+          <!-- WHEN -->
+          <article class="info-card info-card--when">
+            <div class="info-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 0 9 C 0 4.029 4.029 0 9 0 C 13.971 0 18 4.029 18 9 C 18 13.971 13.971 18 9 18 C 4.029 18 0 13.971 0 9 Z" transform="translate(3 3)"/>
+                  <path d="M 0 0 L 0 5.25 L 5.25 5.25" transform="translate(12 6.75)"/>
+                </g>
+              </svg>
+            </div>
+            <div class="info-card__text">
+              <h3 class="info-card__label">WHEN</h3>
+              <p>5 days starting September 6th. Each session runs approximately 1 hour.</p>
+            </div>
+          </article>
+
+          <!-- WHERE -->
+          <article class="info-card info-card--where">
+            <div class="info-card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M 0.75 12 C 0.336 12 0 11.664 0 11.25 L 0 0.75 C 0 0.336 0.336 0 0.75 0 L 15.75 0 C 16.164 0 16.5 0.336 16.5 0.75 L 16.5 11.25 C 16.5 11.664 16.164 12 15.75 12 Z" transform="translate(2.25 6)"/>
+                  <path d="M 0 3 L 4.5 0 L 4.5 9 L 0 6" transform="translate(18.75 7.5)"/>
+                </g>
+              </svg>
+            </div>
+            <div class="info-card__text">
+              <h3 class="info-card__label">WHERE</h3>
+              <p>Ipsum minim laboris laborum qui est exercitation amet eu reprehenderit tempor cupidatat enim dolore a.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="details__cta">
+          <a class="btn-cta" href="#">
+            <span>SAVE MY FREE SPOT</span>
+            <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 0 0 L 14 0" transform="translate(5 12)"/>
+                <path d="M 0 0 L 7 7 L 0 14" transform="translate(12 5)"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========== CLAIM SEKCIJA: "Claim Your Spot Below" ========== -->
+  <section class="claim">
+    <div class="claim__card">
+      <!-- Slojevi pozadine (od najdubljeg ka gornjem) -->
+      <div class="claim__ring" aria-hidden="true"></div>
+      <div class="claim__layer claim__layer--base" aria-hidden="true">
+        <img src="assets/img/claim/pozadina-2.png" alt="">
+      </div>
+      <div class="claim__layer claim__layer--tint" aria-hidden="true">
+        <img src="assets/img/claim/pozadina-1.png" alt="">
+      </div>
+      <div class="claim__glow" aria-hidden="true"></div>
+
+      <!-- Sadržaj -->
+      <div class="claim__portrait">
+        <img src="assets/img/claim/govornici.webp" alt="Iman Gadzhi's The One Thing Event">
+      </div>
+
+      <div class="claim__text">
+        <div class="claim__head">
+          <h2 class="claim__title">Claim Your Spot Below</h2>
+          <p class="claim__sub">You’ll get the confirmation sent to your email address.</p>
+        </div>
+        <div class="claim__cta">
+          <a class="btn-cta" href="#">
+            <span>SAVE MY FREE SPOT</span>
+            <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 0 0 L 14 0" transform="translate(5 12)"/>
+                <path d="M 0 0 L 7 7 L 0 14" transform="translate(12 5)"/>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FOOTER ==========
+       Napomena je lorem ipsum iste dužine kao originalni tekst -->
+  <footer class="footer">
+    <img class="footer__logo" src="assets/img/logo.png" alt="Side Hustle Summit">
+
+    <div class="footer__info">
+      <nav class="footer__links" aria-label="Pravne informacije">
+        <a href="#">Privacy Policy</a>
+        <span class="footer__sep" aria-hidden="true">|</span>
+        <a href="#">Terms &amp; Conditions</a>
+      </nav>
+      <p class="footer__note">Pariatur in aute anim est sit ut ut deserunt officia ipsum eiusmod dolore momentum commodo veniam elit dolore ut esse voluptate magnam excepteur amet mollit enim aliquip.</p>
+      <p class="footer__copy">©2026 Consulting.com. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript za slajder (učitava se na kraju, kad je HTML već spreman) -->
+  <script src="js/learn-slider.js"></script>
+
+</body>
+</html>

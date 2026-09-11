@@ -134,11 +134,21 @@ body.is-locked {
   padding-right: 17px;             /* deo sa zastavom je 112px širok, kao original */
 }
 
-/* Otvorena lista država */
+/* Otvorena lista država: otvara se NAGORE, preko polja iznad telefona,
+   pa uvek ostaje unutar kartice (ispod telefona je samo dugme i nema mesta).
+   !important je potreban jer biblioteka sama upisuje top/height/width u style="" */
 .signup .iti__country-selector {
+  top: auto !important;
+  bottom: calc(100% + 4px);
+  /* širina polja za telefon: 450px, a na uskim ekranima ekran - 30px (margine) - 40px (padding) - 2px (ivica).
+     100% ne može, jer se računa prema delu sa zastavom (114px) */
+  width: min(450px, calc(100vw - 72px)) !important;
+  height: auto !important;
   border-radius: 12px;
+  overflow: hidden;
   color: #fff;
   font-size: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
 }
 
 .signup .iti__search-input {
@@ -147,7 +157,9 @@ body.is-locked {
 }
 
 .signup .iti__country-list {
-  max-height: 220px;
+  max-height: 185px;               /* pretraga 32px + lista 185px staju iznad telefona i na mobilnom */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 .signup .iti__country .iti__dial-code {

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Judson je serif font za "Episode 01" u Blueprint sekciji -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700;1,900&family=Mona+Sans:wght@500;700&family=Judson:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700;1,900&family=Mona+Sans:wght@500;700&family=Judson:wght@400&family=Inter:wght@400;800&display=swap" rel="stylesheet">
 
   <!-- CSS: zajednički stilovi, pa jedan fajl po sekciji -->
   <link rel="stylesheet" href="css/base.css">
@@ -21,6 +21,10 @@
   <link rel="stylesheet" href="css/sections/stories.css">
   <link rel="stylesheet" href="css/sections/claim.css">
   <link rel="stylesheet" href="css/sections/footer.css">
+
+  <!-- Popup forma: biblioteka za telefon (zastave, pozivni brojevi, pravila za svaku državu) + naš stil -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/css/intlTelInput.css">
+  <link rel="stylesheet" href="css/sections/signup.css">
 </head>
 <body>
 
@@ -63,7 +67,7 @@
         beginners<br class="br-mob"> generated $8.9M, $15M, and $31M in tracked earnings.
       </p>
 
-      <a class="btn-cta" href="#">
+      <a class="btn-cta" href="#" data-open-signup>
         <span>SAVE MY FREE SPOT</span>
         <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
           <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -370,7 +374,7 @@
         </div>
 
         <div class="details__cta">
-          <a class="btn-cta" href="#">
+          <a class="btn-cta" href="#" data-open-signup>
             <span>SAVE MY FREE SPOT</span>
             <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
               <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -468,7 +472,7 @@
     </div>
 
     <div class="learn__cta">
-      <a class="btn-cta" href="#">
+      <a class="btn-cta" href="#" data-open-signup>
         <span>SAVE MY FREE SPOT</span>
         <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
           <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -666,7 +670,7 @@
         </div>
 
         <div class="details__cta">
-          <a class="btn-cta" href="#">
+          <a class="btn-cta" href="#" data-open-signup>
             <span>SAVE MY FREE SPOT</span>
             <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
               <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -706,7 +710,7 @@
           <p class="claim__sub">You’ll get the confirmation sent to your email address.</p>
         </div>
         <div class="claim__cta">
-          <a class="btn-cta" href="#">
+          <a class="btn-cta" href="#" data-open-signup>
             <span>SAVE MY FREE SPOT</span>
             <svg class="btn-cta__arrow" viewBox="0 0 24 24" aria-hidden="true">
               <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -737,8 +741,56 @@
     </div>
   </footer>
 
-  <!-- JavaScript za slajder (učitava se na kraju, kad je HTML već spreman) -->
+  <!-- ========== POPUP FORMA ==========
+       Otvara se na svako dugme sa data-open-signup. <dialog> je ugrađeni HTML popup:
+       Esc ga zatvara, a fokus ostaje unutar njega dok je otvoren. -->
+  <dialog class="signup" aria-labelledby="signup-title">
+    <div class="signup__card">
+
+      <div class="signup__head">
+        <h2 class="signup__title" id="signup-title">Enter your details</h2>
+        <p class="signup__text">Enter your details below and join our WhatsApp group.</p>
+      </div>
+
+      <!-- novalidate: browser ne prikazuje svoje balončiće, greške pišemo sami -->
+      <form class="signup__form" novalidate>
+        <div class="signup__field">
+          <input class="signup__input" id="signup-name" type="text" name="name" placeholder="Your Full Name" autocomplete="name" aria-label="Your Full Name" aria-describedby="signup-name-error">
+          <p class="signup__error" id="signup-name-error" aria-live="polite"></p>
+        </div>
+
+        <div class="signup__field">
+          <input class="signup__input" id="signup-email" type="email" name="email" placeholder="Your Email Address" autocomplete="email" aria-label="Your Email Address" aria-describedby="signup-email-error">
+          <p class="signup__error" id="signup-email-error" aria-live="polite"></p>
+        </div>
+
+        <div class="signup__field">
+          <input class="signup__input" id="signup-phone" type="tel" name="phone" autocomplete="tel-national" aria-label="Your Phone Number" aria-describedby="signup-phone-error">
+          <p class="signup__error" id="signup-phone-error" aria-live="polite"></p>
+        </div>
+
+        <button class="signup__submit" type="submit">
+          <span>Get my free ticket</span>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="signup__form-error" role="alert" hidden>Something went wrong, please try again.</p>
+      </form>
+
+      <!-- Poruka posle uspešnog slanja -->
+      <div class="signup__success" hidden>
+        <p class="signup__success-icon" aria-hidden="true">🎉</p>
+        <h2 class="signup__title">You're in!</h2>
+        <p class="signup__text">Your spot is saved. We'll send you all the details soon.</p>
+      </div>
+
+    </div>
+  </dialog>
+
+  <!-- JavaScript (učitava se na kraju, kad je HTML već spreman) -->
   <script src="js/learn-slider.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/intlTelInputWithUtils.min.js"></script>
+  <script src="js/signup-form.js"></script>
 
 </body>
 </html>

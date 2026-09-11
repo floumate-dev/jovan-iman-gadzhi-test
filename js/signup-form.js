@@ -101,17 +101,19 @@ phoneInput.addEventListener('countrychange', () => {
 
 
 // ---------- Slanje ----------
-// Za sada samo ispis u konzolu. Sledeći korak: make.com webhook -> Google Sheets.
+// Podaci idu na make.com webhook, a scenario ih upisuje kao novi red u Google Sheets.
+const MAKE_WEBHOOK_URL = 'https://hook.eu2.make.com/xctuv8u6jdvwut6wskmexji79lq26j5y';
+
 async function sendLead(lead) {
   console.log('Lead:', lead);
 
-  // Kada napravimo scenario u make.com, ovde ide:
-  // const res = await fetch(MAKE_WEBHOOK_URL, {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(lead),
-  // });
-  // if (!res.ok) throw new Error('Webhook error ' + res.status);
+  const res = await fetch(MAKE_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(lead),
+  });
+  // Ako Make ne primi podatke (npr. scenario je obrisan), prikazuje se poruka o grešci
+  if (!res.ok) throw new Error('Webhook error ' + res.status);
 }
 
 form.addEventListener('submit', async (event) => {

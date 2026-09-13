@@ -2,7 +2,6 @@
 // Tri polja sa validacijom: ime i prezime, email, telefon (intl-tel-input biblioteka).
 const dialog = document.querySelector('.signup');
 const form = dialog.querySelector('.signup__form');
-const success = dialog.querySelector('.signup__success');
 const submitBtn = form.querySelector('.signup__submit');
 const submitText = submitBtn.querySelector('span');
 const formError = form.querySelector('.signup__form-error');
@@ -116,6 +115,14 @@ async function sendLead(lead) {
   if (!res.ok) throw new Error('Webhook error ' + res.status);
 }
 
+// Današnji datum po beogradskom vremenu u formatu DD_MM_YYYY ("13/09/2026" -> "13_09_2026").
+// Na thank you stranici tajmer računa rok ponude od ovog datuma.
+function todayOptinTime() {
+  return new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Belgrade', day: '2-digit', month: '2-digit', year: 'numeric',
+  }).format(new Date()).replaceAll('/', '_');
+}
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   formError.hidden = true;
@@ -129,6 +136,7 @@ form.addEventListener('submit', async (event) => {
   }
 
   const words = nameInput.value.trim().split(/\s+/);
+  const optinTime = todayOptinTime();
   const lead = {
     fullName: words.join(' '),
     firstName: words[0],
@@ -136,6 +144,9 @@ form.addEventListener('submit', async (event) => {
     email: emailInput.value.trim(),
     phone: iti.getNumber(),                          // npr. +385911234567
     country: iti.getSelectedCountry().iso2,      // npr. "hr"
+    source: form.elements.source.value,              // iz linka reklame (js/tracking.js), npr. "instagram"
+    specific_source: form.elements.specific_source.value,  // npr. "video_10_09_26"
+    optin_time: optinTime,                           // npr. "13_09_2026"
     submittedAt: new Date().toISOString(),
     page: location.href,
   };
@@ -145,8 +156,8 @@ form.addEventListener('submit', async (event) => {
   submitText.textContent = 'Sending…';
   try {
     await sendLead(lead);
-    form.hidden = true;
-    success.hidden = false;
+    // Uspeh: idi na thank you stranicu, tajmer ponude kreće od današnjeg datuma
+    location.href = `thank-you.html?optin_time=${optinTime}`;
   } catch (err) {
     console.error(err);
     formError.hidden = false;       // podaci ostaju u poljima
@@ -158,24 +169,9 @@ form.addEventListener('submit', async (event) => {
 
 
 // ---------- Otvaranje i zatvaranje ----------
-function resetForm() {
-  form.reset();
-  iti.setNumber('');
-  fields.forEach((field) => {
-    const box = field.input.closest('.signup__field');
-    box.classList.remove('is-invalid');
-    box.querySelector('.signup__error').textContent = '';
-    field.input.removeAttribute('aria-invalid');
-  });
-  formError.hidden = true;
-  form.hidden = false;
-  success.hidden = true;
-}
-
 document.querySelectorAll('[data-open-signup]').forEach((btn) => {
   btn.addEventListener('click', (event) => {
     event.preventDefault();
-    if (!success.hidden) resetForm();   // posle uspešnog slanja forma se otvara prazna
     dialog.showModal();
     document.body.classList.add('is-locked');
   });

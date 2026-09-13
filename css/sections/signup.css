@@ -206,19 +206,6 @@ body.is-locked {
 }
 
 
-/* ---------- Poruka o uspehu ---------- */
-.signup__success {
-  padding: 16px 0;
-  text-align: center;
-}
-
-.signup__success-icon {
-  margin-bottom: 12px;
-  font-size: 40px;
-  line-height: 1;
-}
-
-
 /* =========================================================
    MOBILNI (do 809px): kartica 15px od ivica, manji padding i radius
    ========================================================= */

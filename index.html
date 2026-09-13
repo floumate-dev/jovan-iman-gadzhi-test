@@ -769,6 +769,10 @@
           <p class="signup__error" id="signup-phone-error" aria-live="polite"></p>
         </div>
 
+        <!-- Skrivena polja: odakle je posetilac došao (iz linka reklame, popunjava ih js/tracking.js) -->
+        <input type="hidden" name="source">
+        <input type="hidden" name="specific_source">
+
         <button class="signup__submit" type="submit">
           <span>Get my free ticket</span>
           <span aria-hidden="true">→</span>
@@ -776,13 +780,7 @@
 
         <p class="signup__form-error" role="alert" hidden>Something went wrong, please try again.</p>
       </form>
-
-      <!-- Poruka posle uspešnog slanja -->
-      <div class="signup__success" hidden>
-        <p class="signup__success-icon" aria-hidden="true">🎉</p>
-        <h2 class="signup__title">You're in!</h2>
-        <p class="signup__text">Your spot is saved. We'll send you all the details soon.</p>
-      </div>
+      <!-- Posle uspešnog slanja posetilac ide na thank-you.html (ponuda sa tajmerom) -->
 
     </div>
   </dialog>
@@ -790,6 +788,7 @@
   <!-- JavaScript (učitava se na kraju, kad je HTML već spreman) -->
   <script src="js/learn-slider.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/intlTelInputWithUtils.min.js"></script>
+  <script src="js/tracking.js"></script>
   <script src="js/signup-form.js"></script>
 
 </body>
